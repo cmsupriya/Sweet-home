@@ -39,9 +39,9 @@ Request Body Ex –
 
 ```
 	{
-   	 "fromDate": "2024-10-08",
-   	 "toDate": "2024-10-13",
-    	 "aadharNumber": "Surpiya Sahoo-Aadhar Number",
+   	 "fromDate": "2024-10-09",
+   	 "toDate": "2024-10-14",
+    	 "aadharNumber": "Supriya sahoo-Aadhar Number",
     	 "numOfRooms": 5
 	}
 ```
@@ -50,15 +50,15 @@ Response Body Ex -
 
 ```
 	{
-    	 "id": 1,
-    	 "fromDate": "2010-02-02",
-    	 "toDate": "2010-02-10",
-    	 "bookedOn": "2021-10-20 17:21:47",
-    	 "aadharNumber": "Supriya Sahoo-Aadhar Number",
-    	 "roomNumbers": "40,61,62,59,3",
-    	 "numOfRooms": 5,
-    	 "roomPrice": 40000,
-    	 "transactionId": 0
+	    "id": 1,
+	    "fromDate": "2024-10-09",
+	    "toDate": "2024-10-14",
+	    "bookedOn": "2024-10-09 13:46:58",
+	    "aadharNumber": "Supriya sahoo-Aadhar Number",
+	    "roomNumbers": "91,56,91,32,33",
+	    "numOfRooms": 5,
+	    "roomPrice": 25000,
+	    "transactionId": 0
 	}
 ```
 
@@ -86,15 +86,15 @@ Response Body Ex -
 
 ```
 	{
-    	 "id": 1,
-    	 "fromDate": "2010-02-02",
-    	 "toDate": "2010-02-10",
-    	 "bookedOn": "2021-10-20 17:21:47",
-    	 "aadharNumber": "Supriya Sahoo-Aadhar Number",
-    	 "roomNumbers": "40,61,62,59,3",
-    	 "numOfRooms": 5,
-    	 "roomPrice": 40000,
-    	 "transactionId": 2
+	    "id": 1,
+	    "fromDate": "2024-10-09",
+	    "toDate": "2024-10-14",
+	    "bookedOn": "2024-10-09 13:46:58",
+	    "aadharNumber": "Supriya sahoo-Aadhar Number",
+	    "roomNumbers": "91,56,91,32,33",
+	    "numOfRooms": 5,
+	    "roomPrice": 25000,
+	    "transactionId": 2
 	}
 ```
 
@@ -125,7 +125,7 @@ Response Body Ex -
 
 ```
 	{
-   	 "transactionId": 2,
+     	"transactionId": 2
 	}
 ```
 
@@ -140,20 +140,20 @@ GET localhost:8083/transaction/2
 Response Body Ex -
 
 ```
-	{
-   	 "transactionId": 2,
-    	 "bookingId": 1,
-    	 "paymentMode": "CARD",
-    	 "upiId": null,
-    	 "cardNumber": "Test Card Number"
-	}
+{
+    "transactionId": 2,
+    "bookingId": 1,
+    "paymentMode": "CARD",
+    "upiId": "",
+    "cardNumber": "Test Card Number"
+}
 ```
 
 ## Notification Service
 
-Notification service is also made as a simple spring boot application. The main method sets the Kafka properties and subscribes to the topic "message". It starts consuming messages in a forever loop for notification service using Kafka and prints it on the console. Kafka server and zookeeper runs on an AWS EC2 instance. This is a small sample to show that the notification is being pushed succesfully by the Booking Service to Kafka.
+Notification service is also made as a simple spring boot application. The main method sets the Kafka properties and subscribes to the topic "message". It starts consuming messages in a forever loop for notification service using Kafka and prints it on the console. Kafka server and zookeeper runs on localhost. This is a small sample to show that the notification is being pushed succesfully by the Booking Service to Kafka.
 
-Please set the EC2 connection endpoint under property "bootstrap.servers" for the notifications to be fetched.
+Please set the kafka connection endpoint to localhost:9092 under property "bootstrap.servers" for the notifications to be fetched.
 
 ## Eureka Server
 
@@ -163,6 +163,7 @@ The Booking and Payment services registers themselves into the Eureka server.
 
 The Eureka Server is started on port 8761. On the browser if we go to http://localhost:8761/ we can see the Booking and Payment services are up.
 
+![Eureka](/meta/eureka_log.png)
 
 ### Completing a transaction to confirm booking -
 
