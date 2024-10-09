@@ -155,6 +155,10 @@ Notification service is also made as a simple spring boot application. The main 
 
 Please set the kafka connection endpoint to localhost:9092 under property "bootstrap.servers" for the notifications to be fetched.
 
+Ex. from console - 
+
+![notification](/meta/kafka_notification.png)
+
 ## Eureka Server
 
 Eureka Server is an application that holds the information about all client-service applications. It knows all the client applications running on each port and IP address. Eureka Server is also known as Discovery Server.
