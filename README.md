@@ -169,8 +169,6 @@ The Eureka Server is started on port 8761. On the browser if we go to http://loc
 
 ![Eureka](/meta/eureka_log.png)
 
-### Completing a transaction to confirm booking -
-
 # Future Enhancements
 
 1.  Add error and exception handling at all the possible points
