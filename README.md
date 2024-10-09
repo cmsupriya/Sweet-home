@@ -22,6 +22,7 @@ The application consists of the following microservices:
 
 ## Database Schema Diagram
 
+![Database Schema Diagram](/meta/database_schema.png)
 
 ## Booking Service
 
